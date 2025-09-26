@@ -67,18 +67,17 @@ def confusion_matrix(tp: Sequence[int], fp: Sequence[int], fn: Sequence[int], tn
 
 
 def average_precision(recalls: Sequence[float], precisions: Sequence[float]) -> float:
-    r = _as_numpy(recalls)
-    p = _as_numpy(precisions)
-    if r.size == 0 or p.size == 0:
+    if len(recalls) == 0 or len(precisions) == 0:
         return 0.0
+    r = np.clip(_as_numpy(recalls), 0.0, 1.0)
+    p = np.clip(_as_numpy(precisions), 0.0, 1.0)
     order = np.argsort(r)
     r_sorted = r[order]
     p_sorted = p[order]
     r_unique, indices = np.unique(r_sorted, return_index=True)
     p_max = np.maximum.accumulate(p_sorted[::-1])[::-1]
     p_unique = p_max[indices]
-    area = np.trapezoid(p_unique, r_unique)
-    return float(area)
+    return float(np.trapezoid(p_unique, r_unique))
 
 
 def mean_average_precision(recalls_per_class: Iterable[Sequence[float]], precisions_per_class: Iterable[Sequence[float]]) -> float:
