@@ -36,5 +36,6 @@
 - Average Precision (AP): 0.750
 
 ### 所見
+
 - Precision が高く False Positive は抑えられている一方、Recall が 0.59 程度に留まり検出漏れが残存。
 - GT と整合したフレーム数は 33。ラベルのカバレッジ拡充により評価の信頼度向上が見込める。
