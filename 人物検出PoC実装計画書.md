@@ -275,21 +275,21 @@
 
 #### 4.1 精度評価システムの実装
 
-- [ ] **評価メトリクスの実装**
+- [x] **評価メトリクスの実装**
 
   ```python
   class ModelEvaluator:
-      - [ ] calculate_precision: 精度の計算
-      - [ ] calculate_recall: 再現率の計算
-      - [ ] calculate_f1_score: F1スコアの計算
-      - [ ] calculate_ap: Average Precision計算
+      - [x] calculate_precision: 精度の計算
+      - [x] calculate_recall: 再現率の計算
+      - [x] calculate_f1_score: F1スコアの計算
+      - [x] calculate_ap: Average Precision計算
       - [ ] calculate_map: mean Average Precision計算
-      - [ ] generate_confusion_matrix: 混同行列の生成
+      - [x] generate_confusion_matrix: 混同行列の生成
   ```
 
-- [ ] **詳細評価の実行**
-  - [ ] フレーム別精度の計算
-  - [ ] 人数別精度の分析
+- [x] **詳細評価の実行**
+  - [x] フレーム別精度の計算
+  - [x] 人数別精度の分析
   - [ ] 距離別精度の分析（カメラからの距離）
   - [ ] 照明条件別精度の分析
 
