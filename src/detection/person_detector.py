@@ -50,9 +50,10 @@ class PersonDetector:
         device = self.config.device
         if device != "auto":
             return device
-        if YOLO.is_available("cuda"):
+        import torch
+        if torch.cuda.is_available():
             return "cuda"
-        if YOLO.is_available("mps"):
+        if torch.backends.mps.is_available():
             return "mps"
         return "cpu"
 
